@@ -11,7 +11,9 @@ class TestBdk(unittest.TestCase):
 
     # A type from the bdk-ffi library
     def test_some_dict(self):
-        block_id = BlockId(height=0, hash="abcd")
+        # Pass a random 64 character hex to convert to 32 bytes array
+        block_id = BlockId(height=0, hash=bytes.fromhex("e31d76e04fa2e03dfa0b6bc0be9e14efe31d76e04fa2e03dfa0b6bc0be9e14ef")
+)
 
 if __name__=='__main__':
     unittest.main()

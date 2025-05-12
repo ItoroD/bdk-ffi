@@ -40,5 +40,21 @@ class LiveTransactionTest {
         println("Is explicitly RBF: ${transaction.isExplicitlyRbf()}")
         println("Inputs: ${transaction.input()}")
         println("Outputs: ${transaction.output()}")
+
+        val blockId = wallet.latestCheckpoint().toString()
+        println("Latest checkpoint: $blockId")
+
+        val blockidtest = BlockId(0U, BlockHash.fromBytes("e31d76e04fa2e03dfa0b6bc0be9e14efe31d76e04fa2e03dfa0b6bc0be9e14ef".hexToByteArray()))
+        println(blockidtest)
     }
+
+    fun String.hexToByteArray(): ByteArray {
+        val cleanInput = this.removePrefix("0x") // Optional: Remove "0x" if present
+        require(cleanInput.length % 2 == 0) { "Hex string must have an even length" }
+
+        return ByteArray(cleanInput.length / 2) { i ->
+            cleanInput.substring(i * 2, i * 2 + 2).toInt(16).toByte()
+        }
+    }
+
 }
