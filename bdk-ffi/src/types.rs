@@ -632,7 +632,7 @@ impl From<BdkSatisfaction> for Satisfaction {
     }
 }
 
-/// An extra condition that must be satisfied but that is out of control of the user.
+/// An extra condition that must be satisfied but that is out of control of the user
 #[derive(Debug, Clone, uniffi::Record)]
 pub struct Condition {
     /// Optional CheckSequenceVerify condition
