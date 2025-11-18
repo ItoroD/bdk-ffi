@@ -62,7 +62,7 @@ jobs:
           sudo udevadm trigger --name-match=kvm
 
       - name: "Run Android connected tests"
-        uses: mobile-action/android-emulator@v1
+        uses: reactivecircus/android-emulator-runner@v2.28.0
         with:
           api-level: 30
           target: google_apis
