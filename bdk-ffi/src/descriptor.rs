@@ -32,7 +32,7 @@ pub struct Descriptor {
 
 #[uniffi::export]
 impl Descriptor {
-    /// Parse a string as a descriptor for the given network
+    /// Parse a string as a descriptor for the given network.
     #[uniffi::constructor]
     pub fn new(descriptor: String, network: Network) -> Result<Self, DescriptorError> {
         let secp = Secp256k1::new();
