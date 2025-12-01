@@ -48,12 +48,17 @@ jobs:
           cd bdk-android
           bash ./scripts/build-linux-x86_64.sh
 
-      - name: "Clean up build artifacts"
-        run: |
-          cd bdk-android
-          ./gradlew clean
-          rm -rf build/
-          df -h
+      - name: "Free Disk Space (Ubuntu)"
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+            remove-dotnet: true
+            remove-haskell: true
+            remove-codeql: true
+            remove-docker-images: true
+            remove-large-packages: true  # ths is slow, but recently we need that last ~2GB as of 20251120
+
+      - name: Post Free Disk Space (Ubuntu)
+        run: df -h
 
       - name: "Enable KVM"
         run: |
