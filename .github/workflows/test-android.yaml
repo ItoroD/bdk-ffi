@@ -48,18 +48,6 @@ jobs:
           cd bdk-android
           bash ./scripts/release/build-release-linux-x86_64.sh
 
-      - name: "Free Disk Space (Ubuntu)"
-        uses: AdityaGarg8/remove-unwanted-software@v5
-        with:
-          remove-dotnet: true
-          remove-haskell: true
-          remove-codeql: true
-          remove-docker-images: true
-          remove-large-packages: true  # ths is slow, but recently we need that last ~2GB as of 20251120
-
-      - name: Post Free Disk Space (Ubuntu)
-        run: df -h
-
       - name: "Enable KVM"
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
