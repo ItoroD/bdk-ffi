@@ -21,7 +21,7 @@ use std::convert::TryFrom;
 use std::sync::Arc;
 
 /// Wrapper around an electrum_client::ElectrumApi which includes an internal in-memory transaction
-/// cache to avoid re-fetching already downloaded transactions
+/// cache to avoid re-fetching already downloaded transactions.
 #[derive(uniffi::Object)]
 pub struct ElectrumClient(BdkBdkElectrumClient<bdk_electrum::electrum_client::Client>);
 
